@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import SideBar from './yourPathToSideBar'; 
 import { Drawer, Container, Header, Content, Footer, FooterTab, Button, Icon } from 'native-base';
 
 var array = [];
@@ -15,13 +14,6 @@ export default class App extends Component {
       this.drawer._root.open()
     };
     return (
-      <Drawer
-        ref={(ref) => { this.drawer = ref; }}
-        content={<SideBar navigator={this.navigator} />}
-        onClose={() => this.closeDrawer()} >
-      // Main View
-      </Drawer>
-
       <Container>
         <Header />
         <Content>
