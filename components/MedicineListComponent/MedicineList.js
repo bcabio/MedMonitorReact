@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
 import { 
   Container,
   Header,
@@ -16,57 +15,11 @@ import {
   Badge 
 } from 'native-base';
 
-class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      pillTab: false,
-      calendarTab: false,
-      settingsTab: true
-    };
-  }
-
- togglePillActive() {
-    this.setState({
-      pillTab: true,
-      calendarTab: false,
-      settingsTab: false
-    });
-  }
-
-  toggleCalendarActive() {
-    this.setState({
-      pillTab: false,
-      calendarTab: true,
-      settingsTab: false
-    });
-  }
-
-  toggleSettingsTab() {
-    this.setState({
-      pillTab: false,
-      calendarTab: false,
-      settingsTab: true
-    })
-  }
-
-
-  pillPress() {
-    this.togglePillActive();
-  }
-
-  calendarPress() {
-    this.toggleCalendarActive();
-  }
-
-  settingsPress() {
-    this.toggleSettingsTab()
-  }
-
-  render() {
-    return (
-      <Container>
+class MedicineList extends Component {
+	render() {
+		return (
+			<Container>
         <Header />
         <Content active={this.state.pillTab} onPress={() => this.pillPress()} >
           <View style={styles.container}>
@@ -75,6 +28,9 @@ class App extends Component {
             <Text>Shake your phone to open the developer menu.</Text>
           </View>
         </Content>
+
+
+        
         <Footer style={{backgroundColor:'#000'}} >
           <FooterTab>
             <Button active={this.state.pillTab} onPress={() => this.pillPress()}>
@@ -98,17 +54,8 @@ class App extends Component {
           </FooterTab>
         </Footer>
       </Container>
-    );
-  }
+			);
+	}
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-export default App;
+export default MedicineList;
