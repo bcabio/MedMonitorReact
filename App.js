@@ -1,17 +1,58 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Container, Header, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+import SideBar from './yourPathToSideBar'; 
+import { Drawer, Container, Header, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+
+var array = [];
+
 
 export default class App extends Component {
   render() {
+    closeDrawer = () => {
+      this.drawer._root.close()
+    };
+    openDrawer = () => {
+      this.drawer._root.open()
+    };
     return (
+      <Drawer
+        ref={(ref) => { this.drawer = ref; }}
+        content={<SideBar navigator={this.navigator} />}
+        onClose={() => this.closeDrawer()} >
+      // Main View
+      </Drawer>
+
       <Container>
         <Header />
         <Content>
+          <Text></Text>
+
+          <Button block info>
+            <Text>
+              Allegra
+            </Text>
+          </Button>
+          
+          <Text></Text>
+
+          <Button full info>
+            <Text>
+              Advil
+            </Text>
+          </Button>
+
+          <Text></Text>
+
+          <Button block info>
+            <Text>
+              Anti-Inflammatory
+            </Text>
+          </Button>
+          
+          <Text></Text>
+
           <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
+          <Text> End of list </Text>
       </View>
         </Content>
         <Footer>
