@@ -21,10 +21,11 @@ import { TabNavigator } from "react-navigation";
 import Calendar from "../CalendarComponent/Calendar";
 import Pill from "../PillComponent/Pill";
 import Settings from "../SettingsComponent/Settings";
+import StackNav from "../StackNavComponent/StackNav";
 
 export default (FooterWrapper = TabNavigator(
   {
-    PillPage : { screen : Pill}, 
+    StackNavPage : { screen : StackNav}, 
     CalendarPage : { screen : Calendar}, 
     SettingsPage : { screen : Settings }  
   },
@@ -37,7 +38,7 @@ export default (FooterWrapper = TabNavigator(
           <FooterTab>
             <Button 
               active={props.navigationState.index === 0} 
-              onPress={() => props.navigation.navigate("PillPage")}>
+              onPress={() => props.navigation.navigate("StackNavPage")}>
               
               <Image 
                       active={props.navigationState.index === 0}

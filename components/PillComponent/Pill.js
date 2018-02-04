@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Image, ScrollView, StyleSheet, TouchableOpacity, TouchableHighlight} from 'react-native';
+import Modal from 'react-native-modal';
 import { 
   Container,
   Header,
@@ -13,22 +15,37 @@ import {
   Right,
   Icon,
   Badge,
-  View
+  View,
+  Input
 } from 'native-base';
 
+import { StackNavigator } from 'react-navigation';
 
 class Pill extends Component {
+
+  state = {
+    isModalVisible: false
+  }
+
+  _toggleModal = () => {
+    this.setState({isModalVisible: !this.state.isModalVisible});
+  }
+
   render() {
     return (
       <Container>
-        <Header />
-        <Content >
-          <View >
-            <Text>Open up Pill.js to start working on your app!</Text>
-            <Text>Changes you make will automatically reload.</Text>
-            <Text>Shake your phone to open the developer menu.</Text>
-          </View>
-        </Content>
+        
+        <ScrollView contentContainerStyle={styles.contentContainer} scrollEnabled={false}>
+          <TouchableHighlight onPress={() => this.props.navigation.navigate("MedicineInputScreen")}
+            >
+            <Image
+              style={styles.ImageShadow}
+              className="big-med-button"
+              source={require('../../assets/pill_button.png')}
+              />
+          </TouchableHighlight>
+        
+        </ScrollView>
       </Container>
       );
   }
@@ -36,3 +53,17 @@ class Pill extends Component {
 }
 
 export default Pill;
+
+const styles = StyleSheet.create({
+  contentContainer : {
+    justifyContent: `center`,
+    alignItems: `center`,
+    marginTop: 150
+  },
+  modal : {
+    backgroundColor: `#f7021a`,
+    height: 50,
+    width: 35,
+    elevation: 999
+  }
+})

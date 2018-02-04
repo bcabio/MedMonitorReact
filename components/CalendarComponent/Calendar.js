@@ -40,7 +40,7 @@ class Calendar extends Component {
 
        
       </Container>
-			);
+		);
 	}
 }
 
