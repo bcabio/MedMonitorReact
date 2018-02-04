@@ -18,7 +18,7 @@ import {
 
 import { TabNavigator } from "react-navigation";
 
-import Calendar from "../CalendarComponent/Calendar";
+import Calendar2 from "../CalendarComponent/Calendar";
 import Pill from "../PillComponent/Pill";
 import Settings from "../SettingsComponent/Settings";
 import StackNav from "../StackNavComponent/StackNav";
@@ -26,7 +26,7 @@ import StackNav from "../StackNavComponent/StackNav";
 export default (FooterWrapper = TabNavigator(
   {
     StackNavPage : { screen : StackNav}, 
-    CalendarPage : { screen : Calendar}, 
+    CalendarPage : { screen : Calendar2}, 
     SettingsPage : { screen : Settings }  
   },
   {
