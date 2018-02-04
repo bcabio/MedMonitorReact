@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 import { 
   Container,
   Header,
@@ -13,10 +13,12 @@ import {
   Left,
   Right,
   Icon,
-  Badge 
+  Badge, 
+  View
 } from 'native-base';
 
-import Calendar2 from './components/CalendarComponent/Calendar';
+
+import FooterWrapper from './components/FooterWrapperComponent/FooterWrapper';
 
 class App extends Component {
 
@@ -73,7 +75,19 @@ class App extends Component {
 
   render() {
     return (
-      <Calendar2 />
+
+      <Container> 
+       
+        <FooterWrapper 
+            pillToggle={this.pillPress}
+            calendarToggle={this.calendarPress}
+            settingsToggle={this.settingsPress}
+
+        />
+        
+
+        
+      </Container>
     );
   }
 }
