@@ -79,9 +79,6 @@ class App extends Component {
       <Container> 
        
         <FooterWrapper/>
-        
-
-        
       </Container>
     );
   }
