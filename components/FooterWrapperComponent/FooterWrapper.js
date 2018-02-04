@@ -22,11 +22,12 @@ import Calendar2 from "../CalendarComponent/Calendar";
 import Pill from "../PillComponent/Pill";
 import Settings from "../SettingsComponent/Settings";
 import StackNav from "../StackNavComponent/StackNav";
+import CalendarStackNav from '../CalendarStackNavComponent/CalendarStackNav';
 
 export default (FooterWrapper = TabNavigator(
   {
     StackNavPage : { screen : StackNav}, 
-    CalendarPage : { screen : Calendar2}, 
+    CalendarStackNavPage : { screen : CalendarStackNav}, 
     SettingsPage : { screen : Settings }  
   },
   {
@@ -48,7 +49,7 @@ export default (FooterWrapper = TabNavigator(
             </Button>
             <Button 
               active={props.navigationState.index === 1} 
-              onPress={() => props.navigation.navigate("CalendarPage")}>
+              onPress={() => props.navigation.navigate("CalendarStackNavPage")}>
               
               <Image active={props.navigationState.index === 1}
                       source={require('../../assets/calendar.png')}

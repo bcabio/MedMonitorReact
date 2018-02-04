@@ -13,7 +13,9 @@ import {
   Right,
   Icon,
   Badge,
-  View
+  View,
+  List,
+  ListItem
 } from 'native-base';
 
 
@@ -21,43 +23,40 @@ class Settings extends Component {
   render() {
     return (
       <Container>
-        <Header />
-        <Content active={this.state.pillTab} onPress={() => this.pillPress()} >
-          <View style={styles.container}>
-            <Text></Text>
-            <Button large info><Text>Medicine 1</Text></Button>
-            <Text></Text>
-            <Button large info><Text>Medicine 2</Text></Button>
-            <Text></Text>
-            <Button large info><Text>MEdicine 3</Text></Button>
-          </View>
+        <Header>
+          <Body>
+            <Title>
+              Settings
+            </Title>
+          </Body>
+        </Header>
+        <Content >
+          <List>
+            <ListItem icon>
+              <Left>
+                <Icon name="ios-add"/>
+              </Left>
+              <Body>
+                <Text> Add Medications</Text>
+              </Body>
+              <Right>
+                <Icon name="ios-arrow-forward-outline"/>
+              </Right>
+            </ListItem>
+
+            <ListItem icon>
+              <Left>
+                <Icon name="ios-person"/>
+              </Left>
+              <Body>
+                <Text> Edit Profile</Text>
+              </Body>
+              <Right>
+                <Icon name="ios-arrow-forward-outline"/>
+              </Right>
+            </ListItem>
+          </List>
         </Content>
-
-
-        
-        <Footer style={{backgroundColor:'#000'}} >
-          <FooterTab>
-            <Button active={this.state.pillTab} onPress={() => this.pillPress()}>
-              <Image active={this.state.pillTab}
-                      source={require('./assets/pill.png')}
-                      style={{width: 32, height: 32}} 
-                      name="medicine" />
-            </Button>
-            <Button active={this.state.calendarTab} onPress={() => this.calendarPress()}>
-              <Image active={this.state.calendarTab}
-                      source={require('./assets/calendar.png')}
-                      style={{width: 32, height: 32}} 
-                      name="calendar" />
-            </Button>
-            <Button active={this.state.settingsTab} onPress={() => this.settingsPress()}>
-              <Image active={this.state.settingsTab}
-                      source={require('./assets/settings.png')}
-                      style={{width: 32, height: 32}} 
-                      name="settings" />
-            </Button>
-          </FooterTab>
-        </Footer>
-
       </Container>
     );
   }

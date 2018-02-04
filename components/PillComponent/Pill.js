@@ -44,7 +44,11 @@ class Pill extends Component {
               source={require('../../assets/pill_button.png')}
               />
           </TouchableHighlight>
-        
+          <Text style={{fontSize: `25px`}}>
+          {"\n"}
+            Tap the PLUS to Track Medicine
+          
+          </Text>
         </ScrollView>
       </Container>
       );

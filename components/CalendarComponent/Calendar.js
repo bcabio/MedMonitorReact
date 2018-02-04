@@ -23,13 +23,7 @@ class Calendar2 extends Component {
 	render() {
 		return (
 			<Container>
-        <Header>
-          <Body>
-            <Title>
-              Calendar
-            </Title>
-          </Body>
-        </Header>
+       
         <Content>
           
 
@@ -39,9 +33,9 @@ class Calendar2 extends Component {
   // Callback which gets executed when visible months change in scroll view. Default = undefined
   onVisibleMonthsChange={(months) => {}}
   // Max amount of months allowed to scroll to the past. Default = 50
-  pastScrollRange={7}
+  pastScrollRange={1}
   // Max amount of months allowed to scroll to the future. Default = 50
-  futureScrollRange={50}
+  futureScrollRange={5}
   // Enable or disable scrolling of calendar list
   scrollEnabled={true}
   // Enable or disable vertical scroll indicator. Default = false
@@ -52,9 +46,9 @@ class Calendar2 extends Component {
     // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
     minDate={'2018-01-01'}
     // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-    maxDate={'2018-08-14'}
+    maxDate={'2018-04-14'}
     // Handler which gets executed on day press. Default = undefined
-    onDayPress={(day) => {}}
+    onDayPress={(day) => {this.props.navigation.navigate("MedicineLogScreen")}}
     // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
     monthFormat={'MMMM d yyyy'}
     // Handler which gets executed when visible month changes in calendar. Default = undefined
@@ -83,13 +77,16 @@ class Calendar2 extends Component {
 
   // This is for marking the dates to take their medication
    markedDates={{
-    '2018-02-03': {selected: true, marked: true, selectedColor: 'blue'},
-    '2018-02-05': {selected: true, marked: true, selectedColor: 'darkgreen'},
-    '2018-02-10': {selected: true, marked: true, selectedColor: 'blue'},
-    '2018-02-08': {selected: true, marked: true, selectedColor: 'fuchsia'},
-    '2018-02-11': {marked: true},
-    '2018-02-18': {marked: true, dotColor: 'red', activeOpacity: 0},
-    '2018-02-22': {marked: true, dotColor: 'blue', activeOpacity: 0},
+    '2018-02-01': {marked: true, dotColor: 'blue', activeOpacity: 0},
+    '2018-02-02': {marked: true, dotColor: 'blue', activeOpacity: 0},
+    '2018-02-03': {marked: true, dotColor: 'blue', activeOpacity: 0},
+    '2018-02-04': {marked: true, dotColor: 'blue', activeOpacity: 0},
+    '2018-02-05': {marked: true, dotColor: 'blue', activeOpacity: 0},
+    '2018-02-06': {marked: true, dotColor: 'blue', activeOpacity: 0},
+    '2018-02-07': {marked: true, dotColor: 'blue', activeOpacity: 0},
+    '2018-02-08': {selected: true, marked: true, selectedColor: 'blue'},
+
+    '2018-02-22': {selected: true, dotColor: 'red', activeOpacity: 0},
   }}
   // Specify theme properties to override specific styles for calendar parts. Default = {}
   theme={{
