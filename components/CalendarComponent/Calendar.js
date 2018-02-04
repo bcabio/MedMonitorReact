@@ -12,50 +12,106 @@ import {
   Left,
   Right,
   Icon,
-  Badge 
+  Badge, 
+  View
 } from 'native-base';
 
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
-class Calendar extends Component {
+
+class Calendar2 extends Component {
 	render() {
 		return (
 			<Container>
         <Header />
-        <Content active={this.state.pillTab} onPress={() => this.pillPress()} >
-          <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <Text>Changes you make will automatically reload.</Text>
-            <Text>Shake your phone to open the developer menu.</Text>
-          </View>
-        </Content>
+        <Content>
+          
 
+        
 
+  <CalendarList
+  // Callback which gets executed when visible months change in scroll view. Default = undefined
+  onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
+  // Max amount of months allowed to scroll to the past. Default = 50
+  pastScrollRange={7}
+  // Max amount of months allowed to scroll to the future. Default = 50
+  futureScrollRange={50}
+  // Enable or disable scrolling of calendar list
+  scrollEnabled={true}
+  // Enable or disable vertical scroll indicator. Default = false
+  showScrollIndicator={true}
 
-        <Footer style={{backgroundColor:'#000'}} >
-          <FooterTab>
-            <Button active={this.state.pillTab} onPress={() => this.pillPress()}>
-              <Image active={this.state.pillTab}
-                      source={require('./assets/pill.png')}
-                      style={{width: 32, height: 32}} 
-                      name="medicine" />
-            </Button>
-            <Button active={this.state.calendarTab} onPress={() => this.calendarPress()}>
-              <Image active={this.state.calendarTab}
-                      source={require('./assets/calendar.png')}
-                      style={{width: 32, height: 32}} 
-                      name="calendar" />
-            </Button>
-            <Button active={this.state.settingsTab} onPress={() => this.settingsPress()}>
-              <Image active={this.state.settingsTab}
-                      source={require('./assets/settings.png')}
-                      style={{width: 32, height: 32}} 
-                      name="settings" />
-            </Button>
-          </FooterTab>
-        </Footer>
+  /// Initially visible month. Default = Date()
+    current={'2018-02-03'}
+    // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
+    minDate={'2018-01-01'}
+    // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
+    maxDate={'2018-08-14'}
+    // Handler which gets executed on day press. Default = undefined
+    onDayPress={(day) => {console.log('selected day', day)}}
+    // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
+    monthFormat={'MMMM d yyyy'}
+    // Handler which gets executed when visible month changes in calendar. Default = undefined
+    onMonthChange={(month) => {console.log('month changed', month)}}
+    // Hide month navigation arrows. Default = false
+    hideArrows={true}
+    // Replace default arrows with custom ones (direction can be 'left' or 'right')
+    renderArrow={(direction) => (<Arrow />)}
+    // Do not show days of other months in month page. Default = false
+    hideExtraDays={true}
+    // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out
+    // day from another month that is visible in calendar page. Default = false
+    disableMonthChange={true}
+    // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
+    firstDay={1}
+    // Hide day names. Default = false
+    hideDayNames={false}
+    // Show week numbers to the left. Default = false
+    showWeekNumbers={false}
+
+    style={{
+    borderWidth: 1,
+    borderColor: 'gray',
+    // height: 350
+  }}
+
+  // This is for marking the dates to take their medication
+   markedDates={{
+    '2018-02-03': {selected: true, marked: true, selectedColor: 'blue'},
+    '2018-02-05': {selected: true, marked: true, selectedColor: 'darkgreen'},
+    '2018-02-10': {selected: true, marked: true, selectedColor: 'blue'},
+    '2018-02-08': {selected: true, marked: true, selectedColor: 'fuchsia'},
+    '2018-02-11': {marked: true},
+    '2018-02-18': {marked: true, dotColor: 'red', activeOpacity: 0},
+    '2018-02-22': {marked: true, dotColor: 'blue', activeOpacity: 0},
+  }}
+  // Specify theme properties to override specific styles for calendar parts. Default = {}
+  theme={{
+    backgroundColor: '#ffffff',
+    calendarBackground: '#ffffff',
+    textSectionTitleColor: '#b6c1cd',
+    selectedDayBackgroundColor: '#00adf5',
+    selectedDayTextColor: '#ffffff',
+    todayTextColor: '#00adf5',
+    dayTextColor: '#2d4150',
+    textDisabledColor: '#d9e1e8',
+    dotColor: '#00adf5',
+    selectedDotColor: '#ffffff',
+    arrowColor: 'orange',
+    monthTextColor: 'blue',
+    textDayFontSize: 16,
+    textMonthFontSize: 16,
+    textDayHeaderFontSize: 16
+  }}
+  
+/>
+
+       
+               </Content>
+
       </Container>
 			);
 	}
 }
 
-export default Calendar;
+export default Calendar2;
