@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 import { 
   Container,
   Header,
@@ -13,8 +13,12 @@ import {
   Left,
   Right,
   Icon,
-  Badge 
+  Badge, 
+  View
 } from 'native-base';
+
+
+import FooterWrapper from './components/FooterWrapperComponent/FooterWrapper';
 
 class App extends Component {
 
@@ -39,7 +43,12 @@ class App extends Component {
     this.setState({
       pillTab: false,
       calendarTab: true,
-      settingsTab: false
+      settingsTab: false,
+      day: 1,     // day of month (1-31)
+      month: 1,   // month of year (1-12)
+      year: 2018, // year
+      timestamp,   // UTC timestamp representing 00:00 AM of this date
+      dateString: '2016-05-13'
     });
   }
 
@@ -66,34 +75,10 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
-        <Header />
-        <Content active={this.state.pillTab} onPress={() => this.pillPress()} >
-          <View style={styles.container}>
-          </View>
-        </Content>
-        <Footer style={{backgroundColor:'#000'}} >
-          <FooterTab>
-            <Button active={this.state.pillTab} onPress={() => this.pillPress()}>
-              <Image active={this.state.pillTab}
-                      source={require('./assets/pill.png')}
-                      style={{width: 32, height: 32}} 
-                      name="medicine" />
-            </Button>
-            <Button active={this.state.calendarTab} onPress={() => this.calendarPress()}>
-              <Image active={this.state.calendarTab}
-                      source={require('./assets/calendar.png')}
-                      style={{width: 32, height: 32}} 
-                      name="calendar" />
-            </Button>
-            <Button active={this.state.settingsTab} onPress={() => this.settingsPress()}>
-              <Image active={this.state.settingsTab}
-                      source={require('./assets/settings.png')}
-                      style={{width: 32, height: 32}} 
-                      name="settings" />
-            </Button>
-          </FooterTab>
-        </Footer>
+
+      <Container> 
+       
+        <FooterWrapper/>
       </Container>
     );
   }

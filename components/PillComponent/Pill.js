@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Image, ScrollView, StyleSheet, TouchableOpacity, TouchableHighlight} from 'react-native';
+import Modal from 'react-native-modal';
 import { 
   Container,
   Header,
@@ -12,45 +14,38 @@ import {
   Left,
   Right,
   Icon,
-  Badge 
+  Badge,
+  View,
+  Input
 } from 'native-base';
 
+import { StackNavigator } from 'react-navigation';
+
 class Pill extends Component {
+
+  state = {
+    isModalVisible: false
+  }
+
+  _toggleModal = () => {
+    this.setState({isModalVisible: !this.state.isModalVisible});
+  }
+
   render() {
     return (
       <Container>
-        <Header />
-        <Content active={this.state.pillTab} onPress={() => this.pillPress()} >
-          <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <Text>Changes you make will automatically reload.</Text>
-            <Text>Shake your phone to open the developer menu.</Text>
-          </View>
-        </Content>
-
-
-        <Footer style={{backgroundColor:'#000'}} >
-          <FooterTab>
-            <Button active={this.state.pillTab} onPress={() => this.pillPress()}>
-              <Image active={this.state.pillTab}
-                      source={require('./assets/pill.png')}
-                      style={{width: 32, height: 32}} 
-                      name="medicine" />
-            </Button>
-            <Button active={this.state.calendarTab} onPress={() => this.calendarPress()}>
-              <Image active={this.state.calendarTab}
-                      source={require('./assets/calendar.png')}
-                      style={{width: 32, height: 32}} 
-                      name="calendar" />
-            </Button>
-            <Button active={this.state.settingsTab} onPress={() => this.settingsPress()}>
-              <Image active={this.state.settingsTab}
-                      source={require('./assets/settings.png')}
-                      style={{width: 32, height: 32}} 
-                      name="settings" />
-            </Button>
-          </FooterTab>
-        </Footer>
+        
+        <ScrollView contentContainerStyle={styles.contentContainer} scrollEnabled={false}>
+          <TouchableHighlight onPress={() => this.props.navigation.navigate("MedicineInputScreen")}
+            >
+            <Image
+              style={styles.ImageShadow}
+              className="big-med-button"
+              source={require('../../assets/pill_button.png')}
+              />
+          </TouchableHighlight>
+        
+        </ScrollView>
       </Container>
       );
   }
@@ -58,3 +53,17 @@ class Pill extends Component {
 }
 
 export default Pill;
+
+const styles = StyleSheet.create({
+  contentContainer : {
+    justifyContent: `center`,
+    alignItems: `center`,
+    marginTop: 150
+  },
+  modal : {
+    backgroundColor: `#f7021a`,
+    height: 50,
+    width: 35,
+    elevation: 999
+  }
+})

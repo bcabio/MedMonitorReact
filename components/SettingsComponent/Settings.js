@@ -12,7 +12,8 @@ import {
   Left,
   Right,
   Icon,
-  Badge 
+  Badge,
+  View
 } from 'native-base';
 
 
@@ -56,6 +57,7 @@ class Settings extends Component {
             </Button>
           </FooterTab>
         </Footer>
+
       </Container>
     );
   }
