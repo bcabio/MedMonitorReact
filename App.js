@@ -17,6 +17,7 @@ import {
   View
 } from 'native-base';
 
+
 import FooterWrapper from './components/FooterWrapperComponent/FooterWrapper';
 
 class App extends Component {
@@ -42,7 +43,12 @@ class App extends Component {
     this.setState({
       pillTab: false,
       calendarTab: true,
-      settingsTab: false
+      settingsTab: false,
+      day: 1,     // day of month (1-31)
+      month: 1,   // month of year (1-12)
+      year: 2018, // year
+      timestamp,   // UTC timestamp representing 00:00 AM of this date
+      dateString: '2016-05-13'
     });
   }
 
@@ -69,6 +75,7 @@ class App extends Component {
 
   render() {
     return (
+
       <Container> 
        
         <FooterWrapper 
